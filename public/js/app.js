@@ -42,7 +42,7 @@ angular
 
 
     })
-
+    /*Theming*/
     .config(function ($mdThemingProvider) {
         $mdThemingProvider.theme('default')
             .primaryPalette('deep-orange')
