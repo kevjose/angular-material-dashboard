@@ -1,2 +1,2 @@
 # angular-material-dashboard
-A Simple dashboard template made using angular-material and angular ui router
+A starter-kit dashboard template made using angular-material and angular ui router
