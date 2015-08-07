@@ -25,7 +25,9 @@
     "express",
     "angular",
     "material design",
-    "angular material"
+    "angular material",
+    "dashboard",
+    "responsive"
   ],
   "author": "kevin Jose",
   "license": "MIT"
