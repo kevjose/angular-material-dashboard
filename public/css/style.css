@@ -8,9 +8,14 @@
     text-align: left;
     width: 95%;
 }
-.muppet-list .selected {
-    color: #03a9f4;
-}
 .content-wrapper {
     position: relative;
+}
+
+.background-image {
+    background: url(../images/background.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }

@@ -8,11 +8,11 @@ angular
     function ($stateProvider, $urlRouterProvider) {
 
         $stateProvider
-            /*.state('landing-page', {
+            .state('landing-page', {
              url: "/landing-page",
              templateUrl: "views/landing-page.html",
              controller: 'LandingCtrl'
-             })*/
+             })
             .state('app', {
                 url: "/app",
                 abstract: true,
@@ -38,7 +38,7 @@ angular
 
         ;
 
-        $urlRouterProvider.otherwise("/app/");
+        $urlRouterProvider.otherwise("/landing-page");
 
 
     })
@@ -61,4 +61,22 @@ angular
         function toggleSidenav(name) {
             $mdSidenav(name).toggle();
         }
-    }]);
+    }])
+    .directive('googleplace', function() {
+        return {
+            require: 'ngModel',
+            link: function(scope, element, attrs, model) {
+                var options = {
+                    types: [],
+                    componentRestrictions: {}
+                };
+                scope.gPlace = new google.maps.places.Autocomplete(element[0], options);
+
+                google.maps.event.addListener(scope.gPlace, 'place_changed', function() {
+                    scope.$apply(function() {
+                        model.$setViewValue(element.val());
+                    });
+                });
+            }
+        };
+    });;
