@@ -20,7 +20,10 @@
     -o-background-size: cover;
     background-size: cover;
 }
-
+/*Create border*/
+.show-border {
+    border: solid 1px rgb(96, 125, 139);
+}
 /*Spinner CSS*/
 .page-load-spinner {
     position: fixed;

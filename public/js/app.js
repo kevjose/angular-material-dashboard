@@ -9,10 +9,10 @@ angular
 
         $stateProvider
             .state('landing-page', {
-             url: "/landing-page",
-             templateUrl: "views/landing-page.html",
-             controller: 'LandingCtrl'
-             })
+                url: "/landing-page",
+                templateUrl: "views/landing-page.html",
+                controller: 'LandingCtrl'
+            })
             .state('app', {
                 url: "/app",
                 abstract: true,
@@ -56,27 +56,35 @@ angular
     /*Main application controller*/
     .controller('AppCtrl', ['$scope', '$mdSidenav', function ($scope, $mdSidenav) {
         console.log("AppCtrl");
+        $scope.cuisines = [
+            'Indian',
+            'Chinese'
+        ];
+        $scope.click = function () {
+            console.log("Clicked");
+        }
         $scope.toggleSidenav = toggleSidenav;
 
         function toggleSidenav(name) {
             $mdSidenav(name).toggle();
         }
     }])
-    .directive('googleplace', function() {
+    .directive('googleplace', function () {
         return {
             require: 'ngModel',
-            link: function(scope, element, attrs, model) {
+            link: function (scope, element, attrs, model) {
                 var options = {
                     types: [],
                     componentRestrictions: {}
                 };
                 scope.gPlace = new google.maps.places.Autocomplete(element[0], options);
 
-                google.maps.event.addListener(scope.gPlace, 'place_changed', function() {
-                    scope.$apply(function() {
+                google.maps.event.addListener(scope.gPlace, 'place_changed', function () {
+                    scope.$apply(function () {
                         model.$setViewValue(element.val());
                     });
                 });
             }
         };
-    });;
+    });
+;
