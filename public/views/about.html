@@ -1,27 +1,38 @@
-<md-card>
+<md-card ng-repeat="restaurant in restaurants" layout="row">
     <md-card-content>
-        <h2 class="md-title">Paracosm</h2>
+        <h2 class="md-title">{{restaurant.name}}</h2>
 
         <p>
             The titles of Washed Out's breakthrough song and the first single from Paracosm share the
             two most important words in Ernest Greene's musical language: feel it. It's a simple request, as
             well...
         </p>
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab ng-repeat="menu in restaurant.menuContent" label="{{menu.categoryName}}">
+                <md-content class="md-padding">
 
-        <p>
-            The titles of Washed Out's breakthrough song and the first single from Paracosm share the
-            two most important words in Ernest Greene's musical language: feel it. It's a simple request, as
-            well...
-        </p>
+                    <md-list ng-repeat="foodItem in menu.food">
+                        <md-divider ></md-divider>
+                        <md-list-item class="md-3-line">
+                            <img ng-src="https://12318-presscdn-0-9-pagely.netdna-ssl.com/wp-content/uploads/2010/10/Family-Food-Chat-Avatar.jpg"
+                                 class="md-avatar" alt="{{foodItem.name}}"/>
 
-        <p>
-            The titles of Washed Out's breakthrough song and the first single from Paracosm share the
-            two most important words in Ernest Greene's musical language: feel it. It's a simple request, as
-            well...
-        </p>
+                            <div class="md-list-item-text">
+                                <h3>{{foodItem.name}}</h3>
+
+                                <p>{{foodItem.description}}</p>
+                            </div>
+
+                        </md-list-item>
+                        <div class="md-actions" layout="row">
+                            <md-button class="md-raised md-warn">Action 1</md-button>
+                            <md-button class="md-raised md-accent">Action 2</md-button>
+                        </div>
+                        <md-divider ></md-divider>
+                    </md-list>
+                </md-content>
+            </md-tab>
+        </md-tabs>
+
     </md-card-content>
-    <div class="md-actions" layout="row" layout-align="end center">
-        <md-button class="md-raised md-warn">Action 1</md-button>
-        <md-button class="md-raised md-accent">Action 2</md-button>
-    </div>
 </md-card>
